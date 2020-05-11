@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Scholarly - Recruiter Dashboard</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var DB = request.app.locals.DB;
+        DB.collection("recruiters").findOne({
+            userName: request.session.user.userName
+        }),
+            function (error, loginCheck) {
+                if (error) {
+                    return response.send("Error");
+                }
+
+                if (!loginCheck) {
+                    response.redirect("/recruiterLogin");
+                }
+            };
+    </script>
+    <nav class="navbar navbar-dark bg-dark">
+        <h2 class="text-white">Scholarly Recruiter Dashboard</h2>
+
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <h5> <a href="" class="text-white navbar-brand">Home</a> </h5>
+                    <h5> <a href="/recruiterProfile" class="text-white navbar-brand">View Profile</a> </h5>
+                    <h5> <a href="/recruiterPostSch" class="text-white navbar-brand">Post Scholarship</a> </h5>
+                    <h5> <a href="/recruiterLogout" class="text-white navbar-brand">Logout</a> </h5>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+    </nav>
+
+    <br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <h3>Posted Scholarships</h3>
+                        <tr>
+                            <th scope="col">Scholarship Name</th>
+                            <th scope="col">Type</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            {{#each allPosts}}
+                            <td scope="row">{{schTitle}}</td>
+
+                            <td>{{type}}</td>
+
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+                <br>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <br><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <h3>Applied Students</h3>
+                        <tr>
+                            <th scope="col">Students Name</th>
+                            <th scope="col">Students Email</th>
+                            <th scope="col">Scholarship Applied</th>
+                            <th scope="col">Date Applied</th>
+                            <th scope="col">View Profile</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            {{#each students}}
+                            <td scope="row">{{name}}</td>
+
+                            <td>{{email}}</td>
+
+                            <td>{{schTitle}}</td>
+
+                            <td>
+                                {{timeOfApply}}
+                            </td>
+
+                            </td>
+                            <td scope="col">
+                                <a class="btn btn-secondary" href="/viewProfile?studentId={{studentId}}"
+                                    target="_blank">View Profile</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+                <br>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+#logo {
+  position: fixed;
+  left: 80px;
+  bottom: 300px;
+}
+
+#form {
+  position: fixed;
+  bottom: 250px;
+  right: 250px;
+  border: 2px solid black;
+  padding: 20px;
+  color: #71db77;
+  background-color: #222222;
+}
+
+#dropdownMenuButton {
+  background-color: #222222;
+  color: #71db77;
+}
+
+#button {
+  background-color: #222222;
+  color: #71db77;
+}
+
+body {
+  background-image: url("bgindexpage.jpg");
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.row {
+  position: fixed;
+  top: 30px;
+  right: 180px;
+}
+
+.underLine {
+  text-decoration: underline;
+}

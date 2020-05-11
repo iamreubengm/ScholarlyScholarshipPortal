@@ -1,0 +1,100 @@
+<!--
+
+    Description: This html page is used to design the Students-Apply Page
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/studentApply.css">
+    <title>Student Apply</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <h2 class="text-white">Student Apply</h2>
+
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <h5> <a href="/studentDash" class="text-white navbar-brand">Home</a>
+                    </h5>
+                    <h5> <a href="/studentProfile" class="text-white navbar-brand">View Profile</a>
+                    </h5>
+                    <h5> <a href="/studentProfileForm" class="text-white navbar-brand">Edit Profile</a>
+                    </h5>
+                    <h5> <a href="/studentLogout" class="text-white navbar-brand">Logout</a>
+                    </h5>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+    </nav>
+    <div class="container">
+        <hr>
+        <div class="row" id="titlerow">
+            <div class="offset-md-1 col-md-6">
+                <form action="/studentApply/{{schPost._id}}" method="post">
+                    <h3>
+                        {{schPost.schTitle}}
+                    </h3>
+
+                    <button type="submit" class="btn btn-secondary">Apply for Scholarship</button>
+                </form>
+            </div>
+
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6 offset-md-1" id="box1">
+                <h5>
+                    Scholarship Description: {{schPost.schDescription}}
+                </h5>
+
+                <br>
+
+                <h5>
+                    Requirements: {{schPost.desiredCandidates}}
+                </h5>
+
+                <br>
+
+                <h5>
+                    Type: {{schPost.type}}
+                </h5>
+
+                <br>
+
+                <h5>
+                    Location: {{schPost.location}}
+                </h5>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
